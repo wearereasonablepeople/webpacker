@@ -1,0 +1,2 @@
+# webpacker
+Webpack configuration manager
