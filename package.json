@@ -9,7 +9,8 @@
   "scripts": {
     "start": "webpack-dev-server --config ./index.js --env.devServer",
     "build": "webpack --config ./index.js",
-    "webpacker": "webpacker"
+    "webpacker": "webpacker",
+    "release": "xyz --repo git@github.com:wearereasonablepeople/webpacker.git --increment"
   },
   "repository": {
     "type": "git",
@@ -48,5 +49,8 @@
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-dev-server": "^2.9.4",
     "yargs": "^10.0.3"
+  },
+  "devDependencies": {
+    "xyz": "^2.1.0"
   }
 }
