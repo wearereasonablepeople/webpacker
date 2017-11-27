@@ -78,27 +78,27 @@ module.exports = ({cwd, env, devServer}) => [
       name: 'static/media/[name].[hash:8].[ext]'
     }
   },
-  devServer
-    ? {
-      test: /\.(js|jsx)$/,
-      include: `${cwd}/src`,
-      loader: 'babel-loader',
-      query: {
-        cacheDirectory: true,
-        presets: ['es2015', 'react', 'stage-0'],
-        plugins: [
-          'react-hot-loader/babel',
-          'babel-plugin-react-css-modules'
-        ]
-      }
-    } : {
-      test: /\.(js|jsx)$/,
-      include: `${cwd}/src`,
-      loader: 'babel-loader',
-      query: {
-        plugins: ['babel-plugin-react-css-modules']
-      }
-    },
+  {
+    test: /\.(js|jsx)$/,
+    include: `${cwd}/src`,
+    loader: 'babel-loader',
+    query: {
+      presets: [
+        'react',
+        ['env', {
+          debug: true,
+          targets: {browsers: ['last 2 versions']},
+          loose: true,
+          modules: false
+        }]
+      ],
+      plugins: [
+        'react-hot-loader/babel',
+        'babel-plugin-react-css-modules',
+        'lodash'
+      ]
+    }
+  },
   {
     test: /\.svg$/,
     loader: 'file-loader',
