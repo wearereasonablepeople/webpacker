@@ -5,7 +5,6 @@ const chalk = require('chalk');
 const path = require('path');
 const fs = require('fs');
 const loaders = require('./loaders');
-
 const pluginsDir = path.join(__dirname, 'plugins');
 
 //Control log levels
@@ -32,6 +31,7 @@ module.exports = argv => {
     devServer: false,
     cwd: process.cwd()
   }, argv);
+  config.dotFile = require(path.join(config.cwd, '.webpacker.json')) || {};
 
   console.log(chalk.white.bgBlack(`Building for ${chalk.bold(config.env)} environment`), '\n');
 
@@ -40,7 +40,7 @@ module.exports = argv => {
   ).filter(Boolean);
 
   const entry = {
-    app: ['babel-polyfill', path.join(config.cwd, 'src/index.js')],
+    app: ['babel-polyfill', path.join(config.cwd, (config.dotFile.entry || 'src/index.js'))],
   };
 
   return {
@@ -50,7 +50,7 @@ module.exports = argv => {
     output: {
       filename: `[name].bundle.js`,
       publicPath: '/',
-      path: config.dist || `${config.cwd}/build`
+      path: path.join(config.cwd, (config.dotFile.output || 'build'))
     },
     devServer: {
       contentBase: config.cwd,

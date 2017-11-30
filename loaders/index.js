@@ -1,6 +1,7 @@
 'use strict';
 
 const cssnext = require('postcss-cssnext');
+const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const extractFn = env => env === 'production'
@@ -10,7 +11,7 @@ const extractFn = env => env === 'production'
   })
   : x => x.unshift('style-loader') && x;
 
-module.exports = ({cwd, env, devServer}) => [
+module.exports = ({cwd, env, dotFile}) => [
   {
     test: /\.ejs$/,
     loader: 'ejs-loader'
@@ -56,7 +57,7 @@ module.exports = ({cwd, env, devServer}) => [
         options: {
           data: '@import "variables";',
           includePaths: [
-            `${cwd}/src/scss`
+            path.join(cwd, dotFile.scss || '/src/scss')
           ]
         }
       }
@@ -80,21 +81,23 @@ module.exports = ({cwd, env, devServer}) => [
   },
   {
     test: /\.(js|jsx)$/,
-    include: `${cwd}/src`,
+    // include: path.join(cwd, dotFile.app || 'src'),
+    exclude: /node_modules/,
     loader: 'babel-loader',
     query: {
       presets: [
-        'react',
         ['env', {
-          debug: true,
+          debug: false,
           targets: {browsers: ['last 2 versions']},
           loose: true,
           modules: false
-        }]
+        }],
+        require('babel-preset-react'),
+        require('babel-preset-stage-2'),
       ],
       plugins: [
-        'react-hot-loader/babel',
-        'babel-plugin-react-css-modules',
+        require('react-hot-loader/babel'),
+        require('babel-plugin-react-css-modules').default,
         'lodash'
       ]
     }

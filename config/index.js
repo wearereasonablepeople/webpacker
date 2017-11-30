@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const {mapValues, isString, isObject, isArray} = require('lodash');
 
 const quote = config => mapValues(config, entry =>
@@ -10,4 +11,5 @@ const quote = config => mapValues(config, entry =>
       : entry
 );
 
-module.exports = ({env}) => quote(require(`./${env}.js`));
+module.exports = ({env, cwd, dotFile}) =>
+  quote(require(path.join(cwd, (dotFile.config || 'config'), `${env}.js`)));
