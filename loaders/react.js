@@ -19,7 +19,7 @@ module.exports = () => ({
     plugins: [
       require('babel-plugin-react-css-modules').default,
       require('babel-plugin-transform-decorators-legacy').default,
-      'lodash'
+      require('babel-plugin-lodash')
     ]
   }
 });

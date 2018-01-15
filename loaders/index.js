@@ -7,21 +7,20 @@ module.exports = config => {
     require(`./${preset}`)(config)
   );
 
+  const exludePatterns = additionalPresets.map(preset => preset.test);
+
   return additionalPresets.concat([
     {
       test: /\.ejs$/,
       loader: 'ejs-loader'
     },
     {
-      exclude: [
+      exclude: exludePatterns.concat([
         /\.html$/,
         /\.ejs$/,
-        /\.(js|jsx)$/,
-        /\.css$/,
-        /\.scss$/,
         /\.json$/,
-        /\.svg$/
-      ],
+        /\.svg$/,
+      ]),
       loader: 'url-loader',
       query: {
         limit: 10000,

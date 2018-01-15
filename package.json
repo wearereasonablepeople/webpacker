@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/wearereasonablepeople/webpacker.git"
   },
-  "author": "Eric Nijman (indebanvdhamer)",
+  "author": "Eric Nijman <eric@wearereasonablepeople.com> (https://github.com/indebanvdhamer)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/wearereasonablepeople/webpacker/issues"
@@ -38,6 +38,7 @@
     "ejs-loader": "^0.3.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
+    "graphql": "^0.12.3",
     "graphql-tag": "^2.6.1",
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1",

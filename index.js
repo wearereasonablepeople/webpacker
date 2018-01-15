@@ -31,7 +31,9 @@ module.exports = argv => {
     devServer: false,
     cwd: process.cwd()
   }, argv);
-  config.dotFile = require(path.join(config.cwd, '.webpacker.json')) || {};
+  config.dotFile = require(path.join(config.cwd, '.webpacker.json')) || {
+    modules: [`${config.cwd}/node_modules`]
+  };
 
   console.log(chalk.white.bgBlack(`Building for ${chalk.bold(config.env)} environment`), '\n');
 
@@ -44,7 +46,7 @@ module.exports = argv => {
   };
 
   return {
-    bail: true,
+    bail: config.env === 'production',
     devtool: config.devServer && 'sourcemap',
     entry,
     output: {
@@ -60,12 +62,15 @@ module.exports = argv => {
       host: '0.0.0.0',
       disableHostCheck: true,
       port: 4000,
-      stats
+      stats,
     },
     stats,
     plugins,
     module: {
       rules: loaders(config),
+    },
+    resolve: {
+      modules: config.dotFile.modules
     }
   };
 };
