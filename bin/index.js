@@ -4,14 +4,13 @@
 
 const {execSync} = require('child_process');
 const path = require('path');
-const {size, map, omit} = require('lodash');
-const chalk = require('chalk');
+const {map, omit} = require('lodash');
 const pkg = require('../package.json');
 const yargs = require('yargs');
 
 const envCwd = `--env.cwd=${process.cwd()}`;
-const envArgs = map(omit(yargs.argv, ['_', '$0']), (val, arg) => `--env.${arg}=${val}`).join(' ');
-const nodeEnv = env => `NODE_ENV=${yargs.argv.env || env}`;
+const envArgs = map(omit(yargs.argv, ['_', '$0', 'env']), (val, arg) => `--env.${arg}=${val}`).join(' ');
+const nodeEnv = env => `NODE_ENV=${yargs.argv.environment || env}`;
 
 if(yargs.argv._ && yargs.argv._.length) {
   const cmds = {

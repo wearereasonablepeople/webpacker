@@ -1,10 +1,11 @@
 'use strict';
 
 const {flatMap} = require('lodash');
+const path = require('path');
 
 module.exports = config => {
   const additionalPresets = flatMap(config.dotFile.presets || [], preset =>
-    require(`./${preset}`)(config)
+    require(preset[0] === '.' ? path.resolve(config.cwd, preset) : `./${preset}`)(config)
   );
 
   const exludePatterns = additionalPresets.map(preset => preset.test);
