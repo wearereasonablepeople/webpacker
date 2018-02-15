@@ -1,29 +1,56 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 'use strict';
 
 const {execSync} = require('child_process');
+const chalk = require('chalk');
 const path = require('path');
 const {map, omit} = require('lodash');
 const pkg = require('../package.json');
 const yargs = require('yargs');
+const ya = yargs.argv;
 
-const envCwd = `--env.cwd=${process.cwd()}`;
-const envArgs = map(omit(yargs.argv, ['_', '$0', 'env']), (val, arg) => `--env.${arg}=${val}`).join(' ');
-const nodeEnv = env => `NODE_ENV=${yargs.argv.environment || env}`;
+const silentError = chalk.red(`
+Webpacker exited with an error.
+To log this error, pass --verbose when executing webpacker.
+`);
 
-if(yargs.argv._ && yargs.argv._.length) {
+const createArg = (val, arg) => `--env.${arg}=${val}`;
+const listArgs = args => map(args, createArg).join(' ');
+const resolveEnv = def => ya.environment || (ya.env && ya.env.environment) || def;
+const nodeEnv = env => `NODE_ENV=${resolveEnv(env)}`;
+const createCmd = (cmd, defEnv, envVars) =>
+  `${nodeEnv(defEnv)} ${cmd} -- ${envVars} ${createArg(resolveEnv(defEnv), 'env')}`;
+
+const envCwd = createArg(process.cwd(), 'cwd');
+const envArgs = listArgs(omit(ya, ['_', '$0', 'env']));
+// If webpacker is run from another (child) process, their envs will be passed as 'env'
+const outerEnvs = listArgs(omit(ya.env, ['cwd']));
+const envVars = `${envCwd} ${envArgs} ${outerEnvs}`;
+
+if(ya._ && ya._.length) {
   const cmds = {
-    serve: `${nodeEnv('development')} npm start -- ${envCwd} ${envArgs}`,
-    build: `${nodeEnv('production')} npm run build -- ${envCwd} ${envArgs} --env.env=production`,
+    serve: createCmd('npm start', 'development', envVars),
+    build: createCmd('npm run build', 'production', envVars)
   };
-  const cmd = cmds[yargs.argv._];
+  const cmd = cmds[ya._];
   if(!cmd) {
-    console.log('Command not found');
-    return process.exit(1);
+    console.log(chalk.red('Command not found'));
+    return process.exit(0);
   }
-  execSync(cmd, {cwd: path.join(__dirname, '..'), stdio: 'inherit'});
-  console.log('Done');
-} else {
-  console.log(`Current version: ${pkg.version}`);
+  try {
+    execSync(cmd, {cwd: path.join(__dirname, '..'), stdio: 'inherit', stderr: console.log});
+    console.log(chalk.green('Thank you for using webpacker! :)'));
+    return process.exit(0);
+  } catch(e) {
+    if(ya.verbose || (ya.env && ya.env.verbose)) {
+      console.error(e);
+      return process.exit(1);
+    }
+    console.log(silentError);
+    return process.exit(0);
+  }
 }
+console.log(`Current version: ${pkg.version}`);
+return process.exit(0);
