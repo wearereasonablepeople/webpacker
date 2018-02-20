@@ -47,7 +47,7 @@ module.exports = argv => {
 
   return {
     bail: config.env === 'production',
-    devtool: config.devServer && 'sourcemap',
+    devtool: (config.devServer || config.sourcemap) && 'sourcemap',
     entry,
     output: {
       filename: `[name].bundle.js`,

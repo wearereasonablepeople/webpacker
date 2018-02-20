@@ -5,5 +5,5 @@ const createConfig = require('../config');
 
 module.exports = config => new webpack.EnvironmentPlugin({
   ...createConfig(config),
-  __env: {...config}
+  __: {...config}
 });

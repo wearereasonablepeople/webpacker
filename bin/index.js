@@ -20,7 +20,8 @@ To log this error, pass --verbose when executing webpacker.
 const createArg = (val, arg) => `--env.${arg}=${val}`;
 const listArgs = args => map(args, createArg).join(' ');
 const resolveEnv = def => ya.environment || (ya.env && ya.env.environment) || def;
-const nodeEnv = env => platform === 'win32' ? `set NODE_ENV=${resolveEnv(env)} &&` : `NODE_ENV=${resolveEnv(env)}`;
+const nodeEnv = env =>
+  platform === 'win32' ? `set NODE_ENV=${resolveEnv(env)} &&` : `NODE_ENV=${resolveEnv(env)}`;
 const createCmd = (cmd, defEnv, envVars) =>
   `${nodeEnv(defEnv)} ${cmd} -- ${envVars} ${createArg(resolveEnv(defEnv), 'env')}`;
 
@@ -41,7 +42,7 @@ if(ya._ && ya._.length) {
     return process.exit(0);
   }
   try {
-    execSync(cmd, {cwd: path.join(__dirname, '..'), stdio: 'inherit', stderr: console.log});
+    execSync(cmd, {cwd: path.join(__dirname, '..'), stdio: 'inherit'});
     console.log(chalk.green('Thank you for using webpacker! :)'));
     return process.exit(0);
   } catch(e) {
