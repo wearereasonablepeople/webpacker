@@ -10,6 +10,7 @@ const {map, omit} = require('lodash');
 const pkg = require('../package.json');
 const yargs = require('yargs');
 const ya = yargs.argv;
+const platform = require('os').platform();
 
 const silentError = chalk.red(`
 Webpacker exited with an error.
@@ -19,7 +20,7 @@ To log this error, pass --verbose when executing webpacker.
 const createArg = (val, arg) => `--env.${arg}=${val}`;
 const listArgs = args => map(args, createArg).join(' ');
 const resolveEnv = def => ya.environment || (ya.env && ya.env.environment) || def;
-const nodeEnv = env => `NODE_ENV=${resolveEnv(env)}`;
+const nodeEnv = env => platform === 'win32' ? `set NODE_ENV=${resolveEnv(env)} &&` : `NODE_ENV=${resolveEnv(env)}`;
 const createCmd = (cmd, defEnv, envVars) =>
   `${nodeEnv(defEnv)} ${cmd} -- ${envVars} ${createArg(resolveEnv(defEnv), 'env')}`;
 
