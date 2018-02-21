@@ -47,6 +47,7 @@
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^2.0.9",
+    "postcss-will-change-transition": "^1.2.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^3.1.3",

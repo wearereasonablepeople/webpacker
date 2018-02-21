@@ -1,6 +1,7 @@
 'use strict';
 
 const cssnext = require('postcss-cssnext');
+const transitions = require('postcss-will-change-transition');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -10,6 +11,16 @@ const extractFn = env => env === 'production'
     use
   })
   : x => x.unshift('style-loader') && x;
+
+const postcss = {
+  loader: 'postcss-loader',
+  options: {
+    plugins: () => [
+      cssnext(),
+      transitions
+    ]
+  }
+};
 
 module.exports = ({env, cwd, dotFile}) => [
   {
@@ -22,12 +33,7 @@ module.exports = ({env, cwd, dotFile}) => [
           importLoaders: 1
         }
       },
-      {
-        loader: 'postcss-loader',
-        options: {
-          plugins: () => [cssnext()]
-        }
-      },
+      postcss,
     ])
   },
   {
@@ -42,12 +48,7 @@ module.exports = ({env, cwd, dotFile}) => [
           localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
         }
       },
-      {
-        loader: 'postcss-loader',
-        options: {
-          plugins: () => [cssnext()]
-        }
-      },
+      postcss,
       {
         loader: 'sass-loader',
         options: {
