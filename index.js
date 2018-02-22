@@ -4,6 +4,7 @@
 const chalk = require('chalk');
 const path = require('path');
 const fs = require('fs');
+const {pick} = require('lodash');
 const loaders = require('./loaders');
 const pluginsDir = path.join(__dirname, 'plugins');
 
@@ -31,9 +32,12 @@ module.exports = argv => {
     devServer: false,
     cwd: process.cwd()
   }, argv);
-  config.dotFile = require(path.join(config.cwd, '.webpacker.json')) || {
-    modules: [`${config.cwd}/node_modules`]
-  };
+  config.dotFile = Object.assign({},
+    require(path.join(config.cwd, '.webpacker.json')) || {
+      modules: [`${config.cwd}/node_modules`]
+    },
+    pick(config, ['index', 'entry', 'app', 'config', 'output', 'scss', 'presets'])
+  );
 
   console.log(chalk.white.bgBlack(`Building for ${chalk.bold(config.env)} environment`), '\n');
 
@@ -52,7 +56,9 @@ module.exports = argv => {
     output: {
       filename: `[name].bundle.js`,
       publicPath: '/',
-      path: path.join(config.cwd, (config.dotFile.output || 'build'))
+      path: path.isAbsolute(config.dotFile.output)
+        ? config.dotFile.output
+        : path.join(config.cwd, (config.dotFile.output || 'build'))
     },
     devServer: {
       contentBase: config.cwd,
