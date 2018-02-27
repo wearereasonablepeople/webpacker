@@ -3,6 +3,7 @@
 const cssnext = require('postcss-cssnext');
 const transitions = require('postcss-will-change-transition');
 const path = require('path');
+const fs = require('fs');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const extractFn = env => env === 'production'
@@ -52,9 +53,13 @@ module.exports = ({env, cwd, dotFile}) => [
       {
         loader: 'sass-loader',
         options: {
-          data: '@import "variables";',
+          data: `
+            @import "variables";
+            ${fs.existsSync(dotFile.customVariables) ? '@import "customVariables";' : ''}
+          `,
           includePaths: [
-            path.join(cwd, dotFile.scss || '/src/scss')
+            path.join(cwd, dotFile.scss || '/src/scss'),
+            dotFile.customVariables,
           ]
         }
       }
