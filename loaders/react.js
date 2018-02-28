@@ -1,9 +1,8 @@
 'use strict';
 
-module.exports = () => ({
+module.exports = ({dotFile}) => ({
   test: /\.(js|jsx)$/,
-  // include: path.join(cwd, dotFile.app || 'src'),
-  exclude: /node_modules/,
+  exclude: (dotFile.react && dotFile.react.excludePattern) || /node_modules/,
   loader: 'babel-loader',
   query: {
     presets: [
