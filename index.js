@@ -13,7 +13,7 @@ module.exports = argv => {
   console.log(chalk.white.bgBlack(`Building for ${chalk.bold(config.env)} environment`), '\n');
 
   const entry = {
-    app: ['babel-polyfill', path.join(config.cwd, (config.dotFile.entry || 'src/index.js'))],
+    app: [path.join(config.cwd, (config.dotFile.entry || 'src/index.js'))],
   };
 
   return {
