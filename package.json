@@ -7,8 +7,8 @@
     "webpacker": "./bin/index.js"
   },
   "scripts": {
-    "start": "webpack-dev-server --config ./index.js --env.devServer",
-    "build": "webpack --config ./index.js",
+    "start": "webpack-dev-server --config ./createConfig.js --env.devServer",
+    "build": "webpack --config ./createConfig.js",
     "webpacker": "webpacker",
     "release": "xyz --repo git@github.com:wearereasonablepeople/webpacker.git --increment"
   },
