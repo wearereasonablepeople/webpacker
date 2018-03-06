@@ -5,6 +5,7 @@ module.exports = ({dotFile}) => ({
   exclude: (dotFile.react && dotFile.react.excludePattern) || /node_modules/,
   loader: 'babel-loader',
   query: {
+    babelrc: false,
     presets: [
       ['env', {
         debug: false,
