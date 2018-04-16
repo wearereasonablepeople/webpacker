@@ -51,7 +51,7 @@ const resolveConfig = argv => {
     ...config,
     dotFile: Object.assign({},
       !config.skipDotFile
-        ? resolveDotFile(config.cwd) || {modules: [`${config.cwd}/node_modules`]}
+        ? resolveDotFile(config) || {modules: [`${config.cwd}/node_modules`]}
         : {},
       pick(
         config,
