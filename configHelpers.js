@@ -21,10 +21,14 @@ const stats = {
   warnings: true,
 };
 
-const resolveDotFile = cwd => {
-  const p = path.join(cwd, '.webpacker');
+const processDotFile = (c, config) =>
+  typeof c === 'function' ? c(config) : c;
+
+const resolveDotFile = config => {
+  const p = path.join(config.cwd, '.webpacker');
   try {
-    return require(`${p}`);
+    const c = require(`${p}`);
+    return processDotFile(c, config);
   } catch(e) {
     return require(`${p}.json`);
   }
