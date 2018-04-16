@@ -25,14 +25,14 @@ module.exports = config => {
       loader: 'url-loader',
       query: {
         limit: 10000,
-        name: 'static/media/[name].[hash:8].[ext]'
+        name: config.dotFile.media || 'static/media/[name].[hash:8].[ext]'
       }
     },
     {
       test: /\.svg$/,
       loader: 'file-loader',
       query: {
-        name: 'static/media/[name].[hash:8].[ext]'
+        name: config.dotFile.media || 'static/media/[name].[hash:8].[ext]'
       }
     }
     // ** STOP ** Are you adding a new loader?
