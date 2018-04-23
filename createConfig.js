@@ -24,7 +24,7 @@ module.exports = argv => {
     entry,
     output: {
       filename: `[name].bundle.js`,
-      publicPath: config.dotFile.publicPath || '/',
+      publicPath: config.dotFile.publicPath || config.publicPath || '/',
       path: config.dotFile.output
         ? path.isAbsolute(config.dotFile.output)
           ? config.dotFile.output
