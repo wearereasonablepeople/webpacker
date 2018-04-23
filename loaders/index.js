@@ -25,7 +25,8 @@ module.exports = config => {
       loader: 'url-loader',
       query: {
         limit: 10000,
-        name: config.dotFile.media || 'static/media/[name].[hash:8].[ext]'
+        name: config.dotFile.media || 'static/media/[name].[hash:8].[ext]',
+        publicPath: url => url
       }
     },
     {
