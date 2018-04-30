@@ -38,7 +38,7 @@ module.exports = argv => {
       publicPath: '/',
       host: '0.0.0.0',
       disableHostCheck: true,
-      port: 4000,
+      port: config.dotFile.port || 4000,
       stats,
     },
     stats,
