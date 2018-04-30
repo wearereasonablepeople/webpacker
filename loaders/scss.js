@@ -13,15 +13,15 @@ const extractFn = env => env === 'production'
   })
   : x => x.unshift('style-loader') && x;
 
-const postcss = {
+const postcss = (dotFile = {}) => ({
   loader: 'postcss-loader',
   options: {
     plugins: () => [
-      cssnext(),
+      cssnext(dotFile.cssnextOpts),
       transitions
     ]
   }
-};
+});
 
 module.exports = ({env, cwd, dotFile}) => [
   {
@@ -34,22 +34,22 @@ module.exports = ({env, cwd, dotFile}) => [
           importLoaders: 1
         }
       },
-      postcss,
+      postcss(dotFile),
     ])
   },
   {
-    test: /.scss$/,
+    test: /\.scss$/,
     loader: extractFn(env)([
       {
         loader: 'css-loader',
         options: {
           modules: true,
-          importLoaders: 1,
+          importLoaders: 2,
           camelCase: 'dashes',
           localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
         }
       },
-      postcss,
+      postcss(dotFile),
       {
         loader: 'sass-loader',
         options: {
