@@ -19,7 +19,8 @@ To log this error, pass --verbose when executing webpacker.
 
 const createArg = (val, arg) => `--env.${arg}=${val}`;
 const listArgs = args => map(args, createArg).join(' ');
-const resolveEnv = def => ya.environment || (ya.env && ya.env.environment) || def;
+const resolveEnv = def =>
+  process.env.NODE_ENV || ya.environment || (ya.env && ya.env.environment) || def;
 const nodeEnv = env =>
   platform === 'win32' ? `set NODE_ENV=${resolveEnv(env)} &&` : `NODE_ENV=${resolveEnv(env)}`;
 const createCmd = (cmd, defEnv, envVars) =>
