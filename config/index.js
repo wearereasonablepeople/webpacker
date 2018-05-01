@@ -11,7 +11,11 @@ const getConfig = p => {
 };
 
 module.exports = config => {
-  const p = path.join(config.cwd, (config.dotFile.config || 'config'), `${config.env}.js`);
+  const p = path.join(
+    config.cwd,
+    (config.dotFile.config || 'config'),
+    `${process.env.CONFIG_ENV || config.env}.js`
+  );
   const confFile = getConfig(p);
   if(typeof confFile === 'function') {
     try {
