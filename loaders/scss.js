@@ -23,6 +23,10 @@ const postcss = (dotFile = {}) => ({
   }
 });
 
+const getLocalIdentName = env => env === 'production'
+? '[path]___[name]__[local]___[hash:base64:5]'
+: '[path]___[name]__[local]'
+
 module.exports = ({env, cwd, dotFile}) => [
   {
     test: /\.css$/,
@@ -31,7 +35,8 @@ module.exports = ({env, cwd, dotFile}) => [
         loader: 'css-loader',
         options: {
           modules: true,
-          importLoaders: 1
+          importLoaders: 1,
+          localIdentName: getLocalIdentName(env)
         }
       },
       postcss(dotFile),
@@ -46,7 +51,7 @@ module.exports = ({env, cwd, dotFile}) => [
           modules: true,
           importLoaders: 2,
           camelCase: 'dashes',
-          localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
+          localIdentName: getLocalIdentName(env)
         }
       },
       postcss(dotFile),
