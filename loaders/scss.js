@@ -23,9 +23,9 @@ const postcss = (dotFile = {}) => ({
   }
 });
 
-const getLocalIdentName = env => env === 'production'
-? '[path]___[name]__[local]___[hash:base64:5]'
-: '[path]___[name]__[local]'
+const getLocalIdentName = disableHash => disableHash
+? '[path]___[name]__[local]'
+: '[path]___[name]__[local]___[hash:base64:5]'
 
 module.exports = ({env, cwd, dotFile}) => [
   {
@@ -36,7 +36,7 @@ module.exports = ({env, cwd, dotFile}) => [
         options: {
           modules: true,
           importLoaders: 1,
-          localIdentName: getLocalIdentName(env)
+          localIdentName: getLocalIdentName(dotFile.disableHash)
         }
       },
       postcss(dotFile),
@@ -51,7 +51,7 @@ module.exports = ({env, cwd, dotFile}) => [
           modules: true,
           importLoaders: 2,
           camelCase: 'dashes',
-          localIdentName: getLocalIdentName(env)
+          localIdentName: getLocalIdentName(dotFile.disableHash)
         }
       },
       postcss(dotFile),
