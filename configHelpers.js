@@ -55,7 +55,7 @@ const resolveConfig = argv => {
         : {},
       pick(
         config,
-        ['index', 'entry', 'app', 'config', 'output', 'scss', 'presets', 'customVariables']
+        ['index', 'entry', 'app', 'config', 'output', 'scss', 'presets', 'customVariables', 'disableHash']
       )
     )
   };
