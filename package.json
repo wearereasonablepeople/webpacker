@@ -63,6 +63,7 @@
     "yargs": "^10.0.3"
   },
   "devDependencies": {
+    "favicons-webpack-plugin": "0.0.9",
     "xyz": "^2.1.0"
   }
 }
