@@ -1,5 +1,6 @@
-'use strict';
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-module.exports = ({devServer}) => !devServer && new ExtractTextPlugin('app.css');
+module.exports = ({devServer}) => !devServer && new MiniCssExtractPlugin({
+  filename: '[name].[hash].css',
+  chunkFilename: '[id].[hash].css',
+});

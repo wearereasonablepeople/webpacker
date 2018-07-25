@@ -1,7 +1,5 @@
-'use strict';
-
-module.exports = () => ({
+module.exports = ({excludePattern = /node_modules/}) => ({
   test: /\.(graphql|gql)$/,
-  exclude: /node_modules/,
-  loader: 'graphql-tag/loader'
+  exclude: excludePattern,
+  loader: 'graphql-tag/loader',
 });

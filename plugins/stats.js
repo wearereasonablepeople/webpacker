@@ -1,5 +1,3 @@
-'use strict';
-
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 const plugin = () => new BundleAnalyzerPlugin({
@@ -7,4 +5,4 @@ const plugin = () => new BundleAnalyzerPlugin({
   defaultSizes: 'gzip',
 });
 
-module.exports = ({stats}) => stats && plugin();
+module.exports = ({analyzeBundle}) => analyzeBundle && plugin();
