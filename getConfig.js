@@ -135,7 +135,7 @@ const getConfig = args => {
     optimization: checkOption('optimization', optimization),
     // Make sure webpacker uses its own node_modules when trying to resolve loaders
     resolveLoader: {
-      modules: [path.resolve(__dirname, 'node_modules')],
+      modules: ['node_modules', path.resolve(__dirname, 'node_modules')],
     },
   };
 };
