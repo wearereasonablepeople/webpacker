@@ -1,8 +1,6 @@
-'use strict';
-
-module.exports = ({dotFile}) => ({
-  test: /\.(js|jsx)$/,
-  exclude: (dotFile.react && dotFile.react.excludePattern) || /node_modules/,
+module.exports = ({excludePattern = /node_modules/, plugins = [], presets = []} = {}) => ({
+  test: /\.(jsx?)$/,
+  exclude: excludePattern,
   loader: 'babel-loader',
   query: {
     babelrc: false,
@@ -15,11 +13,12 @@ module.exports = ({dotFile}) => ({
       }],
       require('babel-preset-react'),
       require('babel-preset-stage-2'),
+      ...presets,
     ],
     plugins: [
-      require('babel-plugin-react-css-modules').default,
+      require('babel-plugin-transform-runtime').default,
       require('babel-plugin-transform-decorators-legacy').default,
-      require('babel-plugin-lodash')
+      ...plugins,
     ]
   }
 });

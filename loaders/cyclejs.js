@@ -1,10 +1,9 @@
-'use strict';
-
-module.exports = () => ({
-  test: /\.(js|jsx)$/,
-  exclude: /node_modules/,
+module.exports = ({excludePattern = /node_modules/, plugins = [], presets = []}) => ({
+  test: /\.(jsx?)$/,
+  exclude: excludePattern,
   loader: 'babel-loader',
   query: {
+    babelrc: false,
     presets: [
       ['env', {
         debug: false,
@@ -13,9 +12,11 @@ module.exports = () => ({
         modules: false
       }],
       require('babel-preset-stage-2'),
+      ...presets
     ],
     plugins: [
-      'lodash'
+      require('babel-plugin-transform-decorators-legacy').default,
+      ...plugins
     ]
   }
 });

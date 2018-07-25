@@ -1,11 +1,8 @@
-'use strict';
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-module.exports = ({cwd, dotFile}) => new HtmlWebpackPlugin({
-  template: path.join(cwd, (dotFile.index || 'public/index.ejs')),
-  chunks: ['app'],
+module.exports = ({cwd, index = 'src/index.html'}) => new HtmlWebpackPlugin({
+  template: path.isAbsolute(index) ? index : path.join(cwd, index),
   hash: false,
   baseHref: '/',
   minify: {
