@@ -1,0 +1,18 @@
+{
+  "name": "webpacker-react-and-favicon-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpacker serve",
+    "build": "webpacker build",
+    "stats": "webpacker stats"
+  },
+  "author": "Renan Borges <renan@wearereasonablepeople.com> (https://github.com/renanborgez)",
+  "license": "ISC",
+  "devDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "webpacker": "github:wearereasonablepeople/webpacker#master"
+  }
+}

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-const serve = require('webpack-serve');
 const chalk = require('chalk');
+const serve = require('webpack-serve');
 
 const handler = (argv = {}) => {
   const {getConfig} = require('../getConfig');
@@ -16,8 +16,10 @@ const handler = (argv = {}) => {
     {
       config,
       on: {
+        'build-started': () => console.log('Build started...'),
         'listening': ({options}) => console.log(
-          chalk.white.bgBlack(`Server running at ${chalk.bold(`http://${options.host}:${options.port}`)}`)
+          chalk.white.bgBlack(
+            `Server running at ${chalk.bold(`http://${options.host}:${options.port}`)}`)
         ),
         'build-finished': ({stats}) => console.log(stats.toString(config.stats)),
       },

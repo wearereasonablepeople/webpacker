@@ -1,0 +1,19 @@
+{
+  "name": "webpacker-cyclejs-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpacker serve",
+    "build": "webpacker build",
+    "stats": "webpacker stats"
+  },
+  "author": "Renan Borges <renan@wearereasonablepeople.com> (https://github.com/renanborgez)",
+  "license": "ISC",
+  "devDependencies": {
+    "@cycle/dom": "^20.4.0",
+    "@cycle/run": "^4.4.0",
+    "webpacker": "github:wearereasonablepeople/webpacker#master",
+    "xstream": "^11.7.0"
+  }
+}
