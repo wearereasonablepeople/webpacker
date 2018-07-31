@@ -7,6 +7,7 @@
     "webpacker": "./bin/index.js"
   },
   "scripts": {
+    "test": "eslint .",
     "release": "xyz --repo git@github.com:wearereasonablepeople/webpacker.git --increment"
   },
   "repository": {
@@ -62,6 +63,8 @@
     "yargs": "^12.0.1"
   },
   "devDependencies": {
+    "eslint": "^5.2.0",
+    "eslint-config-warp": "^3.0.0",
     "xyz": "^3.0.0"
   }
 }
