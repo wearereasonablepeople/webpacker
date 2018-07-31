@@ -1,0 +1,6 @@
+{
+  user(id: 5) {
+    firstName
+    lastName
+  }
+}

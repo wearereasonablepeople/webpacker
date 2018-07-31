@@ -1,4 +1,5 @@
 const {flatten} = require('lodash');
+// TODO: Postcss is deprecated, use https://preset-env.cssdb.org/ instead
 const cssnext = require('postcss-cssnext');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const transitions = require('postcss-will-change-transition');

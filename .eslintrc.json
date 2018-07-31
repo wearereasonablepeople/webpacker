@@ -1,5 +1,4 @@
 {
-  "root": true,
   "extends": ["warp/node", "warp/es6"],
   "rules": {
     "camelcase": 0,
