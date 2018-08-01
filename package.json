@@ -7,7 +7,9 @@
     "webpacker": "./bin/index.js"
   },
   "scripts": {
-    "test": "eslint .",
+    "lint": "eslint .",
+    "jest": "jest .",
+    "test": "npm run jest && npm run lint",
     "release": "xyz --repo git@github.com:wearereasonablepeople/webpacker.git --increment"
   },
   "repository": {
@@ -64,8 +66,14 @@
     "yargs": "^12.0.1"
   },
   "devDependencies": {
+    "@webpack-contrib/config-loader": "^1.2.1",
+    "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.2.0",
     "eslint-config-warp": "^3.0.0",
+    "eslint-plugin-jest": "^21.18.0",
+    "jest-cli": "^23.4.2",
+    "jest-config": "^23.4.2",
     "xyz": "^3.0.0"
   }
 }

@@ -22,7 +22,7 @@ module.exports = ({env, cwd, scssPath, useScssVariables, postcssPresetEnvOptions
             ${useScssVariables && `@import "variables";`}
           `,
           includePaths: [
-            path.join(cwd, scssPath || '/src/scss'),
+            path.join(cwd || process.cwd(), scssPath || '/src/scss'),
           ]
         }
       }
