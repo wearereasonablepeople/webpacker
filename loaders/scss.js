@@ -1,7 +1,7 @@
 const path = require('path');
 const {extractCssPlugin, postcss} = require('./utils');
 
-module.exports = ({env, cwd, scssPath, useScssVariables, cssnextOpts}) => [
+module.exports = ({env, cwd, scssPath, useScssVariables, postcssPresetEnvOptions}) => [
   {
     test: /\.scss$/,
     loader: extractCssPlugin(env)([
@@ -14,7 +14,7 @@ module.exports = ({env, cwd, scssPath, useScssVariables, cssnextOpts}) => [
           localIdentName: '[path]___[name]__[local]',
         }
       },
-      postcss({cssnextOpts}),
+      postcss({postcssPresetEnvOptions}),
       {
         loader: 'sass-loader',
         options: {

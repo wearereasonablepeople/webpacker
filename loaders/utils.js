@@ -1,6 +1,5 @@
 const {flatten} = require('lodash');
-// TODO: Postcss is deprecated, use https://preset-env.cssdb.org/ instead
-const cssnext = require('postcss-cssnext');
+const postcssPresetEnv = require('postcss-preset-env');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const transitions = require('postcss-will-change-transition');
 
@@ -8,11 +7,11 @@ const extractCssPlugin = env => env === 'production'
   ? use => [MiniCssExtractPlugin.loader, ...use]
   : use => ['style-loader', ...use];
 
-const postcss = ({cssnextOpts}) => ({
+const postcss = ({postcssPresetEnvOptions}) => ({
   loader: 'postcss-loader',
   options: {
     plugins: () => [
-      cssnext(cssnextOpts),
+      postcssPresetEnv(postcssPresetEnvOptions),
       transitions
     ]
   }

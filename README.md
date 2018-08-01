@@ -34,12 +34,12 @@ For now there are 3 commands you can use.
 # Loaders
 |Name|Additional parameters allowed|Description|
 |:--|:---|:---|
-|[css][css-loader]|`{env, cssnextOpts}`|Loads a CSS file|
+|[css][css-loader]|`{env, postcssPresetEnvOptions}`|Loads a CSS file|
 |[cyclejs][cyclejs-loader]|`{excludePattern, plugins, presets}`|A functional and reactive JavaScript framework for predictable code. Uses [babel-loader][babel-loader]|
 |[graphql][graphql-loader]|`{excludePattern}`|A query language for your API|
 |[react][babel-loader]|`{excludePattern, plugins, presets}`|A JavaScript library for building user interfaces. Uses [babel-loader][babel-loader]|
-|[scss][sass-loader]|`{env, cwd, scssPath, useScssVariables, cssnextOpts}`|Loads a Sass/SCSS file and compiles it to CSS.|
-|utils|`{env, cssnextOpts}`|An aggregation of [postcss-loader][postcss-loader], [url-loader][url-loader] and [style-loader][style-loader]|
+|[scss][sass-loader]|`{env, cwd, scssPath, useScssVariables, postcssPresetEnvOptions}`|Loads a Sass/SCSS file and compiles it to CSS.|
+|utils|`{env, postcssPresetEnvOptions}`|An aggregation of [postcss-loader][postcss-loader], [url-loader][url-loader] and [style-loader][style-loader]|
 
 [babel-loader]: https://github.com/babel/babel-loader
 [css-loader]: https://github.com/webpack-contrib/css-loader
