@@ -1,5 +1,5 @@
 const path = require('path');
-const {setLoader, setPlugin} = require('webpacker/utils');
+const {setLoader, setPlugin} = require('../../utils');
 
 module.exports = {
   output: fn => fn({path: path.join(__dirname, 'build')}),
