@@ -1,6 +1,6 @@
 const {extractCssPlugin, postcss} = require('./utils');
 
-module.exports = ({env, cssnextOpts}) => [
+module.exports = ({env, postcssPresetEnvOptions}) => [
   {
     test: /\.css$/,
     loader: extractCssPlugin(env)([
@@ -12,7 +12,7 @@ module.exports = ({env, cssnextOpts}) => [
           localIdentName: '[path]___[name]__[local]',
         }
       },
-      postcss({cssnextOpts}),
+      postcss({postcssPresetEnvOptions}),
     ])
   },
 ];
