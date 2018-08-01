@@ -12,14 +12,8 @@ Setting up webpack with a bunch of plugins and environments every time you start
 
 # Installation
 
-Install with npm:
 ```bash
 npm i [-D] webpacker
-```
-
-Install with yarn:
-```bash
-yarn add [-D] webpacker
 ```
 
 # Usage
