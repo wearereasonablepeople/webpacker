@@ -1,7 +1,8 @@
 const path = require('path');
 const {extractCssPlugin, postcss} = require('./utils');
 
-module.exports = ({env, cwd, scssPath, useScssVariables, postcssPresetEnvOptions}) => [
+module.exports = (
+  {env, cwd, useScssVariables, postcssPresetEnvOptions, scssPath = '/src/scss'}) => (
   {
     test: /\.scss$/,
     loader: extractCssPlugin(env)([
@@ -22,10 +23,10 @@ module.exports = ({env, cwd, scssPath, useScssVariables, postcssPresetEnvOptions
             ${useScssVariables && `@import "variables";`}
           `,
           includePaths: [
-            path.join(cwd, scssPath || '/src/scss'),
+            path.isAbsolute(scssPath) ? scssPath : path.join(cwd, scssPath)
           ]
         }
       }
     ])
   }
-];
+);

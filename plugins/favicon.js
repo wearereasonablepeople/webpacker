@@ -1,7 +1,7 @@
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const path = require('path');
 
-module.exports = ({cwd, logo}) => logo && new FaviconsWebpackPlugin({
+module.exports = ({cwd, logo}) => logo ? new FaviconsWebpackPlugin({
   logo: path.isAbsolute(logo) ? logo : path.join(cwd, logo),
   persistentCache: true,
   inject: true,
@@ -18,4 +18,4 @@ module.exports = ({cwd, logo}) => logo && new FaviconsWebpackPlugin({
     yandex: false,
     windows: false
   }
-});
+}) : null;
