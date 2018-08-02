@@ -1,4 +1,4 @@
-module.exports = ({excludePattern = /node_modules/, plugins = [], presets = []} = {}) => ({
+module.exports = ({excludePattern = /node_modules/, plugins = [], presets = []}) => ({
   test: /\.(jsx?)$/,
   exclude: excludePattern,
   loader: 'babel-loader',

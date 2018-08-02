@@ -1,8 +1,6 @@
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
-const plugin = () => new BundleAnalyzerPlugin({
+module.exports = ({analyzeBundle}) => analyzeBundle ? new BundleAnalyzerPlugin({
   analyzerMode: 'static',
   defaultSizes: 'gzip',
-});
-
-module.exports = ({analyzeBundle}) => analyzeBundle && plugin();
+}) : null;
