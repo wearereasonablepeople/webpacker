@@ -9,6 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "jest": "jest .",
+    "c": "git-cz",
     "test": "npm run lint && npm run jest",
     "release": "xyz --repo git@github.com:wearereasonablepeople/webpacker.git --increment"
   },
@@ -71,6 +72,7 @@
     "eslint": "^5.2.0",
     "eslint-config-warp": "^3.0.0",
     "eslint-plugin-jest": "^21.18.0",
+    "git-cz": "^1.7.1",
     "jest-cli": "^23.4.2",
     "jest-config": "^23.4.2",
     "xyz": "^3.0.0"
