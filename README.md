@@ -2,6 +2,9 @@
 
 ![image](https://hmp.me/bzzr)
 
+[![Build Status](https://travis-ci.com/wearereasonablepeople/webpacker.svg?branch=master)](https://travis-ci.com/wearereasonablepeople/webpacker)
+[![Coverage Status](https://coveralls.io/repos/github/wearereasonablepeople/webpacker/badge.svg?branch=master)](https://coveralls.io/github/wearereasonablepeople/webpacker?branch=master)
+
 # webpacker
 [Webpack](https://github.com/webpack/webpack) configuration manager
 
@@ -13,7 +16,7 @@ Setting up webpack with a bunch of plugins and environments every time you start
 # Installation
 
 ```bash
-npm i [-D] webpacker
+npm i --save-dev webpacker
 ```
 
 # Usage
