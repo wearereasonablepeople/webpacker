@@ -9,6 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "jest": "jest .",
+    "c": "git-cz",
     "test": "npm run lint && npm run jest",
     "release": "xyz --repo git@github.com:wearereasonablepeople/webpacker.git --increment"
   },
@@ -34,6 +35,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "chalk": "^2.4.1",
     "chokidar": "^2.0.4",
+    "compression-webpack-plugin": "^1.1.11",
     "connect-history-api-fallback": "^1.5.0",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
@@ -70,6 +72,7 @@
     "eslint": "^5.2.0",
     "eslint-config-warp": "^3.0.0",
     "eslint-plugin-jest": "^21.18.0",
+    "git-cz": "^1.7.1",
     "jest-cli": "^23.4.2",
     "jest-config": "^23.4.2",
     "xyz": "^3.0.0"
