@@ -56,6 +56,7 @@ For now there are 3 commands you can use.
 |[favicon][favicons-webpack-plugin]|`{cwd, logo}`|Allows to use the favicons generator with webpack|
 |[html][html-webpack-plugin]|`{cwd, index}`|Plugin that simplifies creation of HTML files to serve your bundles|
 |[stats][webpack-bundle-analyzer]||Visualize size of webpack output files with an interactive zoomable treemap|
+|[compress][compression-webpack-plugin]|`{devServer}`|Prepare compressed versions of assets|
 
 
 [copy-webpack-plugin]: https://github.com/webpack-contrib/copy-webpack-plugin
@@ -64,6 +65,7 @@ For now there are 3 commands you can use.
 [html-webpack-plugin]: https://github.com/jantimon/html-webpack-plugin
 [mini-css-extract-plugin]: https://github.com/webpack-contrib/mini-css-extract-plugin
 [webpack-bundle-analyzer]: https://github.com/webpack-contrib/webpack-bundle-analyzer
+[compression-webpack-plugin]: https://github.com/webpack-contrib/compression-webpack-plugin
 
 [cyclejs-usage]: samples/cyclejs/
 [react-favicon-usage]: samples/react-and-favicon/
