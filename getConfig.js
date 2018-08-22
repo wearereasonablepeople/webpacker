@@ -72,7 +72,7 @@ const optimization = op => op || optimizations();
 const defaultPath = path.resolve(process.cwd(), 'dist');
 const output = (out = {}) => ({
   path: out.path || defaultPath,
-  filename: out.filename || '[name].bundle.js',
+  filename: out.filename || '[name].[contenthash].js',
 });
 
 const checkFile = configFile => (key, fn) =>

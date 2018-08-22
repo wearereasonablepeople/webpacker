@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = ({cwd, index = 'src/index.html'}) => new HtmlWebpackPlugin({
   template: path.isAbsolute(index) ? index : path.join(cwd, index),
-  hash: false,
+  hash: true,
   baseHref: '/',
   minify: {
     removeComments: true,
