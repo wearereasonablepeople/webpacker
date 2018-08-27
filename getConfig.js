@@ -75,6 +75,8 @@ const output = (out = {}) => ({
   filename: out.filename || '[name].bundle.js',
 });
 
+const devtool = (mode = 'eval') => mode;
+
 const checkFile = configFile => (key, fn) =>
   typeof configFile[key] === 'function' ? configFile[key](fn) : fn();
 
@@ -126,6 +128,7 @@ const getConfig = args => {
 
   return {
     ...baseConfig,
+    devtool: checkOption('devtool', devtool),
     serve: checkOption('serve', serve),
     resolve: checkOption('resolve', resolve),
     entry: checkOption('entry', entry),

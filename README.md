@@ -99,8 +99,10 @@ The following options can be adjusted by returning them as a key in `.webpacker.
 ### output
 `output` is for [webpack](https://webpack.js.org/concepts/#output)'s `output` option.
 
-## Example .webpacker.js
+### devtool
+`devtool` is for [webpack](https://webpack.js.org/configuration/devtool/)'s `devtool` option.
 
+### Example file
 ```js
 const path = require('path');
 const {setLoader, setPlugin} = require('webpacker/utils');
