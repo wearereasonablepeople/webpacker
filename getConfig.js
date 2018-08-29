@@ -72,7 +72,8 @@ const optimization = op => op || optimizations();
 const defaultPath = path.resolve(process.cwd(), 'dist');
 const output = (out = {}) => ({
   path: out.path || defaultPath,
-  filename: out.filename || '[name].[contenthash].js',
+  filename: out.filename ||
+            process.env.NODE_ENV === 'production' ? '[name].[contenthash].js' : '[name].js',
 });
 
 const devtool = (mode = 'eval') => mode;
