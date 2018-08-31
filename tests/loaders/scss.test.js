@@ -1,3 +1,4 @@
+const path = require('path');
 const {scss} = require('../../loaders');
 
 describe('SCSS loader', () => {
@@ -21,8 +22,7 @@ describe('SCSS loader', () => {
       }, {
         loader: 'sass-loader',
         options: {
-          data: '\n            undefined\n          ',
-          includePaths: [expect.stringMatching('src/scss')]
+          data: '',
         }
       }
     ],
@@ -38,16 +38,13 @@ describe('SCSS loader', () => {
     it('should use style-loader if options.env != production', () =>
       expect(scss({env: 'development'}).loader[0]).toBe('style-loader')
     );
-    it('allows to enable SCSS variables', () => {
-      const useScssVariables = true;
-      return expect(scss({useScssVariables}).loader[3].options.data)
-      .toBe('\n            @import "variables";\n          ');
-    });
-    it('allows to include SASS files from a different path', () => {
-      const cwd = './path';
-      const scssPath = './scssPath/scss';
-      return expect(scss({cwd, scssPath}).loader[3].options.includePaths)
-      .toContain('path/scssPath/scss');
+    it('allows to not pass SCSS variables path', () =>
+      expect(scss({}).loader[3].options.data).toBe('')
+    );
+    it('allows to pass SCSS variables path', () => {
+      const scssVariables = path.resolve(__dirname, './variables.scss');
+      return expect(scss({scssVariables}).loader[3].options.data)
+      .toBe('$test: 10px;\n');
     });
   });
 });

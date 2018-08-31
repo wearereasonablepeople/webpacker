@@ -1,10 +1,11 @@
-const path = require('path');
 const {extractCssPlugin, postcss} = require('./utils');
+const {readFileSync} = require('fs');
 
 module.exports = (
-  {env, cwd, useScssVariables, postcssPresetEnvOptions, scssPath = '/src/scss'}) => (
+  {env, scssVariables, postcssOpts}) => (
   {
     test: /\.scss$/,
+    exclude: /node_modules/,
     loader: extractCssPlugin(env)([
       {
         loader: 'css-loader',
@@ -15,16 +16,11 @@ module.exports = (
           localIdentName: '[path]___[name]__[local]',
         }
       },
-      postcss({postcssPresetEnvOptions}),
+      postcss(postcssOpts),
       {
         loader: 'sass-loader',
         options: {
-          data: `
-            ${useScssVariables && `@import "variables";`}
-          `,
-          includePaths: [
-            path.isAbsolute(scssPath) ? scssPath : path.join(cwd, scssPath)
-          ]
+          data: scssVariables ? readFileSync(scssVariables, 'utf-8') : '',
         }
       }
     ])
