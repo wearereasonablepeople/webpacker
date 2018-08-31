@@ -57,7 +57,7 @@ For now there are 3 commands you can use.
 |[html][html-webpack-plugin]|`{cwd, index}`|Plugin that simplifies creation of HTML files to serve your bundles|
 |[stats][webpack-bundle-analyzer]||Visualize size of webpack output files with an interactive zoomable treemap|
 |[compress][compression-webpack-plugin]|`{devServer}`|Prepare compressed versions of assets|
-
+|[lodash][lodash-webpack-plugin]|`opts`|Treeshaking plugin for lodash-es|
 
 [copy-webpack-plugin]: https://github.com/webpack-contrib/copy-webpack-plugin
 [environment-plugin]: https://webpack.js.org/plugins/environment-plugin/
@@ -66,6 +66,7 @@ For now there are 3 commands you can use.
 [mini-css-extract-plugin]: https://github.com/webpack-contrib/mini-css-extract-plugin
 [webpack-bundle-analyzer]: https://github.com/webpack-contrib/webpack-bundle-analyzer
 [compression-webpack-plugin]: https://github.com/webpack-contrib/compression-webpack-plugin
+[lodash-webpack-plugin]: https://github.com/lodash/lodash-webpack-plugin
 
 [cyclejs-usage]: samples/cyclejs/
 [react-favicon-usage]: samples/react-and-favicon/
