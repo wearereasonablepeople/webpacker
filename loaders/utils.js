@@ -1,5 +1,4 @@
 const {flatten} = require('lodash');
-const postcssPresetEnv = require('postcss-preset-env');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const transitions = require('postcss-will-change-transition');
 
@@ -7,13 +6,10 @@ const extractCssPlugin = env => env === 'production'
   ? use => [MiniCssExtractPlugin.loader, ...use]
   : use => ['style-loader', ...use];
 
-const postcss = ({postcssPresetEnvOptions}) => ({
+const postcss = opts => ({
   loader: 'postcss-loader',
   options: {
-    plugins: () => [
-      postcssPresetEnv(postcssPresetEnvOptions),
-      transitions
-    ]
+    plugins: () => opts || [transitions]
   }
 });
 
