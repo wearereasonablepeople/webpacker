@@ -71,7 +71,7 @@ For now there are 3 commands you can use.
 [cyclejs-usage]: samples/cyclejs/
 [react-favicon-usage]: samples/react-and-favicon/
 [react-graphql-usage]: samples/react-and-graphql/
-[react-sass-usage]: samples/react-and-sass/
+[react-scss-usage]: samples/react-and-scss/
 [root-usage]: samples/
 
 # Dotfile
@@ -135,7 +135,7 @@ module.exports = {
   * [Cyclejs][cyclejs-usage]
   * [React and favicon][react-favicon-usage]
   * [React and graphql][react-graphql-usage]
-  * [React and sass][react-sass-usage]
+  * [React and scss][react-scss-usage]
 
 # Help us
 Support us by giving feedback, opening a pull request or just by starring the project!

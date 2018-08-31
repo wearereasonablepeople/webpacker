@@ -10,10 +10,9 @@
   },
   "author": "Renan Borges <renan@wearereasonablepeople.com> (https://github.com/renanborgez)",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@cycle/dom": "^20.4.0",
     "@cycle/run": "^4.4.0",
-    "webpacker": "github:wearereasonablepeople/webpacker#master",
     "xstream": "^11.7.0"
   }
 }

@@ -65,7 +65,7 @@ const resolve = () => ({
   }
 });
 
-const entry = (ent = './src/index.js') => ent;
+const entry = (ent = './src/index.js', cwd = process.cwd()) => path.resolve(cwd, ent);
 
 const optimization = op => op || optimizations();
 
@@ -119,7 +119,7 @@ const getConfig = args => {
   };
 
   const checkOption = checkFile(configFile);
-  logIntro(config);
+  config.env !== 'test' && logIntro(config);
 
   const moduleRules = () => ({
     rules: applyLoaders(config.preset.loaders.map(x => x(config))),
