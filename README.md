@@ -31,12 +31,12 @@ For now there are 3 commands you can use.
 # Loaders
 |Name|Additional parameters allowed|Description|
 |:--|:---|:---|
-|[css][css-loader]|`{env, postcssPresetEnvOptions}`|Loads a CSS file|
+|[css][css-loader]|`{env, postcssOpts}`|Loads a CSS file|
 |[cyclejs][cyclejs-loader]|`{excludePattern, plugins, presets}`|A functional and reactive JavaScript framework for predictable code. Uses [babel-loader][babel-loader]|
 |[graphql][graphql-loader]|`{excludePattern}`|A query language for your API|
 |[react][babel-loader]|`{excludePattern, plugins, presets}`|A JavaScript library for building user interfaces. Uses [babel-loader][babel-loader]|
-|[scss][sass-loader]|`{env, cwd, scssPath, useScssVariables, postcssPresetEnvOptions}`|Loads a Sass/SCSS file and compiles it to CSS.|
-|utils|`{env, postcssPresetEnvOptions}`|An aggregation of [postcss-loader][postcss-loader], [url-loader][url-loader] and [style-loader][style-loader]|
+|[scss][sass-loader]|`{env, scssVariables, postcssOpts}`|Loads a Sass/SCSS file and compiles it to CSS.|
+|utils|`{env, postcssOpts}`|An aggregation of [postcss-loader][postcss-loader], [url-loader][url-loader] and [style-loader][style-loader]|
 
 [babel-loader]: https://github.com/babel/babel-loader
 [css-loader]: https://github.com/webpack-contrib/css-loader
@@ -57,7 +57,7 @@ For now there are 3 commands you can use.
 |[html][html-webpack-plugin]|`{cwd, index}`|Plugin that simplifies creation of HTML files to serve your bundles|
 |[stats][webpack-bundle-analyzer]||Visualize size of webpack output files with an interactive zoomable treemap|
 |[compress][compression-webpack-plugin]|`{devServer}`|Prepare compressed versions of assets|
-
+|[lodash][lodash-webpack-plugin]|`opts`|Treeshaking plugin for lodash-es|
 
 [copy-webpack-plugin]: https://github.com/webpack-contrib/copy-webpack-plugin
 [environment-plugin]: https://webpack.js.org/plugins/environment-plugin/
@@ -66,6 +66,7 @@ For now there are 3 commands you can use.
 [mini-css-extract-plugin]: https://github.com/webpack-contrib/mini-css-extract-plugin
 [webpack-bundle-analyzer]: https://github.com/webpack-contrib/webpack-bundle-analyzer
 [compression-webpack-plugin]: https://github.com/webpack-contrib/compression-webpack-plugin
+[lodash-webpack-plugin]: https://github.com/lodash/lodash-webpack-plugin
 
 [cyclejs-usage]: samples/cyclejs/
 [react-favicon-usage]: samples/react-and-favicon/

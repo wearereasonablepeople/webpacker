@@ -1,6 +1,6 @@
 {
   "name": "webpacker",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Webpack configuration manager",
   "main": "webpacker.js",
   "bin": {
@@ -50,11 +50,11 @@
     "json-stringify-safe": "^5.0.1",
     "koa-connect": "^2.0.1",
     "lodash": "^4.17.10",
+    "lodash-webpack-plugin": "^0.11.5",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.2",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "postcss-loader": "^2.1.6",
-    "postcss-preset-env": "^5.3.0",
     "postcss-will-change-transition": "^1.2.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",

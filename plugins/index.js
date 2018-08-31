@@ -5,6 +5,7 @@ const favicon = require('./favicon');
 const html = require('./html');
 const stats = require('./stats');
 const compress = require('./compress');
+const lodash = require('./lodash');
 
 module.exports = {
   configure,
@@ -13,5 +14,6 @@ module.exports = {
   favicon,
   html,
   stats,
-  compress
+  compress,
+  lodash,
 };
