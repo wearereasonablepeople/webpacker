@@ -10,7 +10,7 @@
   },
   "author": "Renan Borges <renan@wearereasonablepeople.com> (https://github.com/renanborgez)",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   }

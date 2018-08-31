@@ -75,6 +75,10 @@
     "git-cz": "^1.7.1",
     "jest-cli": "^23.4.2",
     "jest-config": "^23.4.2",
+    "webpacker-cyclejs-sample": "file:./samples/cyclejs",
+    "webpacker-react-and-favicon-sample": "file:./samples/react-and-favicon",
+    "webpacker-react-and-graphql-sample": "file:./samples/react-and-graphql",
+    "webpacker-react-and-scss-sample": "file:./samples/react-and-scss",
     "xyz": "^3.0.0"
   }
 }
