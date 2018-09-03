@@ -37,7 +37,7 @@ const runner = ({dir, name, config}) => {
         config: sample('.webpacker.js'),
         ...config,
       }, done);
-    });
+    }, 30000);
   });
 };
 
