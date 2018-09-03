@@ -76,7 +76,7 @@ const output = (out = {}) => ({
             process.env.NODE_ENV === 'production' ? '[name].[contenthash].js' : '[name].js',
 });
 
-const devtool = (mode = 'eval') => mode;
+const devtool = mode => mode || process.env.NODE_ENV === 'development' ? 'eval' : false;
 
 const checkFile = configFile => (key, fn) =>
   typeof configFile[key] === 'function' ? configFile[key](fn) : fn();
