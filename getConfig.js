@@ -71,6 +71,7 @@ const optimization = op => op || optimizations();
 
 const defaultPath = path.resolve(process.cwd(), 'dist');
 const output = (out = {}) => ({
+  ...out,
   path: out.path || defaultPath,
   filename: out.filename ||
             process.env.NODE_ENV === 'production' ? '[name].[contenthash].js' : '[name].js',
