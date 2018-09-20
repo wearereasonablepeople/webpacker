@@ -74,7 +74,7 @@ const output = (out = {}) => ({
   ...out,
   path: out.path || defaultPath,
   filename: out.filename ||
-            process.env.NODE_ENV === 'production' ? '[name].[contenthash].js' : '[name].js',
+            (process.env.NODE_ENV === 'production' ? '[name].[contenthash].js' : '[name].js'),
 });
 
 const devtool = mode => mode || process.env.NODE_ENV === 'development' ? 'eval' : false;
