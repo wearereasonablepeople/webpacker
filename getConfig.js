@@ -67,7 +67,7 @@ const resolve = () => ({
 
 const entry = (ent = './src/index.js', cwd = process.cwd()) => path.resolve(cwd, ent);
 
-const optimization = op => op || optimizations();
+const optimization = op => optimizations(op);
 
 const defaultPath = path.resolve(process.cwd(), 'dist');
 const output = (out = {}) => ({
