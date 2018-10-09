@@ -3,8 +3,8 @@ const compress = require('../../plugins/compress');
 describe('Compression plugin', () => {
   const defaults = {
     options: {
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 1024 * 10
+      test: /\.js$|\.css$|\.svg$|\.json$|\.html$/,
+      threshold: 0
     },
   };
 
