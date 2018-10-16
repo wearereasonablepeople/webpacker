@@ -1,6 +1,6 @@
 {
   "name": "webpacker",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "Webpack configuration manager",
   "main": "webpacker.js",
   "bin": {
