@@ -1,21 +1,37 @@
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const WebappWebpackPlugin = require('webapp-webpack-plugin');
 const path = require('path');
 
-module.exports = ({cwd, logo}) => logo ? new FaviconsWebpackPlugin({
-  logo: path.isAbsolute(logo) ? logo : path.join(cwd, logo),
-  persistentCache: true,
-  inject: true,
-  background: '#fff',
-  icons: {
-    android: false,
-    appleIcon: false,
-    appleStartup: false,
-    coast: false,
-    favicons: true,
-    firefox: false,
-    opengraph: false,
-    twitter: false,
-    yandex: false,
-    windows: false
-  }
-}) : null;
+const defaultIcons = {
+  android: false,
+  appleIcon: false,
+  appleStartup: false,
+  coast: false,
+  favicons: true,
+  firefox: false,
+  windows: false,
+  yandex: false
+};
+
+module.exports = ({
+  cwd,
+  logo,
+  background = '#fff',
+  theme_color = '#fff',
+  prefix = 'meta/',
+  icons = {}
+}) => logo
+  ? new WebappWebpackPlugin({
+    logo: path.isAbsolute(logo) ? logo : path.join(cwd, logo),
+    cache: true,
+    inject: true,
+    prefix,
+    favicons: {
+      background,
+      theme_color,
+      scope: '/',
+      icons: {
+        ...defaultIcons,
+        ...icons
+      },
+    }
+  }) : null;

@@ -1,5 +1,5 @@
 const path = require('path');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const WebappWebpackPlugin = require('webapp-webpack-plugin');
 const {favicon} = require('../../plugins');
 
 describe('FAVICON plugin', () => {
@@ -19,30 +19,31 @@ describe('FAVICON plugin', () => {
 
       const expected = {
         options: {
-          background: '#fff',
-          emitStats: false,
-          icons: {
-            android: false,
-            appleIcon: false,
-            appleStartup: false,
-            coast: false,
-            favicons: true,
-            firefox: false,
-            opengraph: false,
-            twitter: false,
-            windows: false,
-            yandex: false
-          },
-          inject: true,
           logo: path.join(__dirname, 'fakeFolder'),
-          persistentCache: true,
-          prefix: 'icons-[hash]/',
-          statsFilename: 'iconstats-[hash].json'
+          cache: true,
+          inject: true,
+          prefix: 'meta/',
+          favicons: {
+            scope: '/',
+            background: '#fff',
+            //eslint-disable-next-line camelcase
+            theme_color: '#fff',
+            icons: {
+              android: false,
+              appleIcon: false,
+              appleStartup: false,
+              coast: false,
+              favicons: true,
+              firefox: false,
+              windows: false,
+              yandex: false
+            }
+          }
         }
       };
 
       expect(faviconPlugin).toEqual(expected);
-      expect(faviconPlugin).toBeInstanceOf(FaviconsWebpackPlugin);
+      expect(faviconPlugin).toBeInstanceOf(WebappWebpackPlugin);
     });
   });
 });
