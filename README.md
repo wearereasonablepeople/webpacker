@@ -93,8 +93,8 @@ For a list of available plugins, please check `./plugins/index.js`.
 ## Other options
 The following options can be adjusted by returning them as a key in `.webpacker.js`. The options should be functions and their only argument is the function that webpacker itself uses internally. You can choose to call this given function and extend on its return value, or choose to not use the function and return a value of your choosing (refer to the documentation of each option to see what has to be returned).
 
-### serve
-`serve` is used to define options for [webpack-serve](https://github.com/webpack-contrib/webpack-serve), which is used when running `webpacker serve`.
+### devServer
+`devServer` is used to define options for [webpack-dev-server](https://github.com/webpack/webpack-dev-server), which is used when running `webpacker serve`.
 
 ### entry
 `entry` is for [webpack](https://webpack.js.org/concepts/#entry)'s `entry` option. By default its value is `./src/index.js`.
