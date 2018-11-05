@@ -13,8 +13,8 @@ describe('CSS plugin', () => {
   });
 
   describe('receives an options object to customize the config', () => {
-    it('allows to enable devServer and disable minification', () => {
-      expect(css({devServer: true})).toBe(null);
+    it('allows to enable isDevServer and disable minification', () => {
+      expect(css({isDevServer: true})).toBe(null);
     });
   });
 });
