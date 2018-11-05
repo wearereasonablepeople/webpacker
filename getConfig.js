@@ -2,8 +2,6 @@
 const path = require('path');
 const optimizations = require('./optimizations');
 const {stats} = require('./plugins');
-const history = require('connect-history-api-fallback');
-const convert = require('koa-connect');
 const chalk = require('chalk');
 const {applyLoaders} = require('./loaders/utils');
 
@@ -27,7 +25,7 @@ const checkValidity = configFile => {
     throw new Error('No preset defined, please define a preset');
   }
   const keys = [
-    'serve',
+    'devServer',
     'resolve',
     'entry',
     'output',
@@ -46,23 +44,14 @@ const logIntro = config => {
   console.log(chalk.white.bgBlack(`Building for ${chalk.bold(config.env)} environment`));
 };
 
-// Using webpack-serve here
-const serve = ({
+// Using webpack-dev-server here
+const devServer = ({
   port = 3000,
   host = '0.0.0.0',
 } = {}) => ({
   host,
   port,
-  add: app => {
-    app.use(convert(history()));
-  },
-});
-
-// Make sure webpacker uses its own node_modules when trying to resolve webpack-hot-client
-const resolve = () => ({
-  alias: {
-    'webpack-hot-client/client': require.resolve('webpack-hot-client/client'),
-  }
+  historyApiFallback: true,
 });
 
 const entry = (ent = './src/index.js', cwd = process.cwd()) => path.resolve(cwd, ent);
@@ -131,8 +120,7 @@ const getConfig = args => {
   return {
     ...baseConfig,
     devtool: checkOption('devtool', devtool),
-    serve: checkOption('serve', serve),
-    resolve: checkOption('resolve', resolve),
+    devServer: checkOption('devServer', devServer),
     entry: checkOption('entry', entry),
     output: checkOption('output', output),
     module: checkOption('module', moduleRules),

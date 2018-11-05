@@ -1,6 +1,6 @@
 const CompressionPlugin = require('compression-webpack-plugin');
 
-module.exports = ({devServer, threshold = 0}) => !devServer ? new CompressionPlugin({
+module.exports = ({isDevServer, threshold = 0}) => !isDevServer ? new CompressionPlugin({
   test: /\.js$|\.css$|\.svg$|\.json$|\.html$/,
   threshold
 }) : null;

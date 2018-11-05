@@ -1,6 +1,6 @@
 {
   "name": "webpacker",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "description": "Webpack configuration manager",
   "main": "webpacker.js",
   "bin": {
@@ -36,7 +36,6 @@
     "chalk": "^2.4.1",
     "chokidar": "^2.0.4",
     "compression-webpack-plugin": "^1.1.11",
-    "connect-history-api-fallback": "^1.5.0",
     "copy-webpack-plugin": "^4.5.3",
     "css-loader": "^1.0.0",
     "eslint-plugin-react": "^7.10.0",
@@ -47,7 +46,6 @@
     "html-webpack-plugin": "^3.2.0",
     "http-proxy-middleware": "^0.18.0",
     "json-stringify-safe": "^5.0.1",
-    "koa-connect": "^2.0.1",
     "lodash": "^4.17.11",
     "lodash-webpack-plugin": "^0.11.5",
     "mini-css-extract-plugin": "^0.4.4",
@@ -62,14 +60,17 @@
     "webapp-webpack-plugin": "^2.3.1",
     "webpack": "^4.20.2",
     "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-serve": "^2.0.2",
+    "webpack-dev-server": "^3.1.10",
     "ws": "^6.1.0",
     "yargs": "^12.0.2"
   },
   "devDependencies": {
+    "@babel/traverse": "7.0.0-beta.52",
     "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+    "babel-eslint": "^10.0.1",
     "coveralls": "^3.0.2",
-    "eslint": "^5.7.0",
+    "eslint": "^5.8.0",
+    "eslint-config-standard-react": "^7.0.2",
     "eslint-config-warp": "^3.0.0",
     "eslint-plugin-jest": "^21.25.1",
     "git-cz": "^1.7.1",

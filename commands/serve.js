@@ -1,30 +1,23 @@
 /* eslint-disable no-console */
 const chalk = require('chalk');
-const serve = require('webpack-serve');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
 
 const handler = (argv = {}) => {
   const {getConfig} = require('../getConfig');
-  const config = getConfig({devServer: true, ...argv});
-  //eslint-disable-next-line no-unused-vars
-  const {$0, _, ...args} = argv;
-  return serve(
-    {
-      ...args,
-      logLevel: 'warn',
-      clipboard: false,
-    },
-    {
-      config,
-      on: {
-        'build-started': () => console.log('Build started...'),
-        'listening': ({options}) => console.log(
-          chalk.white.bgBlack(
-            `Server running at ${chalk.bold(`http://${options.host}:${options.port}`)}`)
-        ),
-        'build-finished': ({stats}) => console.log(stats.toString(config.stats)),
-      },
-    }
-  );
+  const config = getConfig({isDevServer: true, ...argv});
+  const compiler = webpack(config);
+
+  const server = new WebpackDevServer(compiler, {
+    stats: config.stats,
+    ...config.devServer,
+  });
+
+  server.listen(config.devServer.port, config.devServer.host, () => {
+    console.log(chalk.white.bgBlack(
+      `Server running at ${chalk.bold(`http://${config.devServer.host}:${config.devServer.port}`)}`
+    ));
+  });
 };
 
 module.exports = {

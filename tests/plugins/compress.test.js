@@ -13,8 +13,8 @@ describe('Compression plugin', () => {
   });
 
   describe('receives an options object to customize the config', () => {
-    it('allows to enable devServer and disable compression', () => {
-      expect(compress({devServer: true})).toBe(null);
+    it('allows to enable isDevServer and disable compression', () => {
+      expect(compress({isDevServer: true})).toBe(null);
     });
   });
 });
