@@ -48,10 +48,12 @@ const logIntro = config => {
 const devServer = ({
   port = 3000,
   host = '0.0.0.0',
+  ...args
 } = {}) => ({
   host,
   port,
   historyApiFallback: true,
+  ...args
 });
 
 const entry = (ent = './src/index.js', cwd = process.cwd()) => path.resolve(cwd, ent);
