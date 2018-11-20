@@ -68,6 +68,11 @@ const output = (out = {}) => ({
             (process.env.NODE_ENV === 'production' ? '[name].[contenthash].js' : '[name].js'),
 });
 
+const resolve = r => ({
+  extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  ...r,
+});
+
 const devtool = mode => mode || process.env.NODE_ENV === 'development' ? 'eval' : false;
 
 const checkFile = configFile => (key, fn) =>
@@ -128,6 +133,7 @@ const getConfig = args => {
     module: checkOption('module', moduleRules),
     plugins: checkOption('plugins', plugins),
     optimization: checkOption('optimization', optimization),
+    resolve: checkOption('resolve', resolve),
     // Make sure webpacker uses its own node_modules when trying to resolve loaders
     resolveLoader: {
       modules: ['node_modules', path.resolve(__dirname, 'node_modules')],
