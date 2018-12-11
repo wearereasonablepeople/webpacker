@@ -7,7 +7,7 @@ const handler = (argv = {}) => {
   const compiler = webpack(config);
   compiler.run((err, stats) => {
     if(err) {
-      throw new Error('Fatal webpack error', err);
+      throw new Error(err);
     }
     console.log(stats.toString(config.stats));
   });
