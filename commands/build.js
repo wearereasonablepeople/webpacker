@@ -5,7 +5,12 @@ const handler = (argv = {}) => {
   const {getConfig} = require('../getConfig');
   const config = getConfig(argv);
   const compiler = webpack(config);
-  compiler.run((err, stats) => console.log(stats.toString(config.stats)));
+  compiler.run((err, stats) => {
+    if(err) {
+      throw new Error('Fatal webpack error', err);
+    }
+    console.log(stats.toString(config.stats));
+  });
 };
 
 module.exports = {
