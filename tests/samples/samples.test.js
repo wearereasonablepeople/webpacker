@@ -19,3 +19,8 @@ runner({
   dir: 'react-and-scss',
   name: 'React and SCSS',
 });
+
+runner({
+  dir: 'react-emotion-ramda-hmr',
+  name: 'React, Ramda, Emotion with HMR',
+});
