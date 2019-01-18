@@ -2,36 +2,30 @@ const {cyclejs} = require('../../loaders');
 
 describe('CycleJS loader', () => {
 
-  const envPreset = expect.arrayContaining(['env', {
+  const envPreset = expect.arrayContaining(['@babel/preset-env', {
     debug: false,
     targets: {browsers: ['last 2 versions']},
     loose: true,
     modules: false
   }]);
 
-  const babelPresetStage2 = expect.objectContaining({
-    plugins: expect.arrayContaining([
-      expect.any(Function)
-    ]),
-    presets: expect.arrayContaining([
-      expect.objectContaining({
-        plugins: expect.arrayContaining([
-          expect.any(Function)
-        ])
-      })
-    ])
-  });
-
-  const babelPluginTransformDecoratorsLegacy = expect.any(Function);
+  const jsFeatures = [
+    expect.any(Function),
+    expect.arrayContaining([expect.any(Function), expect.objectContaining({legacy: true})]),
+    expect.any(Function),
+    expect.any(Function),
+    expect.arrayContaining([expect.any(Function), expect.objectContaining({loose: false})]),
+    expect.any(Function),
+  ];
 
   const defaults = {
     test: /\.(jsx?)$/,
     loader: 'babel-loader',
-    exclude: /node_modules_2/,
+    exclude: /node_modules/,
     query: {
       babelrc: false,
-      plugins: expect.arrayContaining([babelPluginTransformDecoratorsLegacy]),
-      presets: expect.arrayContaining([envPreset, babelPresetStage2])
+      presets: expect.arrayContaining([envPreset]),
+      plugins: expect.arrayContaining(jsFeatures),
     }
   };
 

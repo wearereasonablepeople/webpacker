@@ -2,12 +2,21 @@ const {react} = require('../../loaders');
 
 describe('React loader', () => {
 
-  const envPreset = ['env', {
+  const envPreset = ['@babel/preset-env', {
     debug: false,
     targets: {browsers: ['last 2 versions']},
     loose: true,
     modules: false
   }];
+
+  const jsFeatures = [
+    expect.any(Function),
+    expect.arrayContaining([expect.any(Function), expect.objectContaining({legacy: true})]),
+    expect.any(Function),
+    expect.any(Function),
+    expect.arrayContaining([expect.any(Function), expect.objectContaining({loose: false})]),
+    expect.any(Function),
+  ];
 
   const defaults = {
     test: /\.(jsx?)$/,
@@ -15,11 +24,8 @@ describe('React loader', () => {
     exclude: /node_modules/,
     query: expect.objectContaining({
       babelrc: false,
-      presets: expect.arrayContaining([envPreset, expect.objectContaining({
-        plugins: expect.arrayContaining([expect.any(Function)]),
-        presets: expect.any(Array)
-      })]),
-      plugins: expect.arrayContaining([expect.any(Function)])
+      presets: expect.arrayContaining([envPreset, '@babel/preset-react']),
+      plugins: expect.arrayContaining(jsFeatures)
     })
   };
 

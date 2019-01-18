@@ -1,3 +1,5 @@
+const {jsFeatures} = require('./utils');
+
 module.exports = ({excludePattern = /node_modules/, plugins = [], presets = []}) => ({
   test: /\.(jsx?)$/,
   exclude: excludePattern,
@@ -5,17 +7,16 @@ module.exports = ({excludePattern = /node_modules/, plugins = [], presets = []})
   query: {
     babelrc: false,
     presets: [
-      ['env', {
+      ['@babel/preset-env', {
         debug: false,
         targets: {browsers: ['last 2 versions']},
         loose: true,
         modules: false
       }],
-      require('babel-preset-stage-2'),
       ...presets
     ],
     plugins: [
-      require('babel-plugin-transform-decorators-legacy').default,
+      ...jsFeatures(),
       ...plugins
     ]
   }

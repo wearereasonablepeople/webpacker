@@ -35,8 +35,23 @@ const applyLoaders = (loaders = []) => {
   ]);
 };
 
+const jsFeatures = () => [
+  // old Stage 1
+  require('@babel/plugin-proposal-export-default-from').default,
+
+  // old Stage 2
+  [require('@babel/plugin-proposal-decorators').default, {legacy: true}],
+
+  // old Stage 3
+  require('@babel/plugin-syntax-dynamic-import').default,
+  require('@babel/plugin-syntax-import-meta').default,
+  [require('@babel/plugin-proposal-class-properties').default, {loose: false}],
+  require('@babel/plugin-proposal-json-strings').default,
+];
+
 module.exports = {
   applyLoaders,
   extractCssPlugin,
   postcss,
+  jsFeatures
 };

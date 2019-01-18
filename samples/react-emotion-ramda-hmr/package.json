@@ -1,0 +1,30 @@
+{
+  "name": "hadrons-cms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Piotr (d3vilroot) Gawlowski",
+  "scripts": {
+    "start": "node ../../webpacker serve",
+    "build": "node ../../webpacker build",
+    "stats": "node ../../webpacker stats"
+  },
+  "dependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.6",
+    "@emotion/core": "^10.0.6",
+    "@emotion/styled": "^10.0.6",
+    "@fortawesome/fontawesome-svg-core": "^1.2.12",
+    "@fortawesome/free-solid-svg-icons": "^5.6.3",
+    "apollo-boost": "^0.1.23",
+    "babel-plugin-emotion": "^10.0.6",
+    "babel-plugin-ramda": "^2.0.0",
+    "eslint-plugin-emotion": "^10.0.6",
+    "graphql": "^14.0.2",
+    "history": "^4.7.2",
+    "react": "^16.7.0",
+    "react-apollo": "^2.3.3",
+    "react-dom": "^16.7.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
+  }
+}

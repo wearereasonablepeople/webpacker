@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "extends": ["warp/es6", "warp/jsx"],
+  "plugins": ["emotion"],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "require": true,
+    "process": true,
+    "module": true
+  },
+  "rules": {
+    "max-len": ["error", {
+      "tabWidth": 2,
+      "code": 140
+    }],
+    "react/jsx-tag-spacing": 0,
+    "class-methods-use-this": 0
+  }
+}
