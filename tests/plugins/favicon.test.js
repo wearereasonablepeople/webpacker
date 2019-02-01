@@ -42,7 +42,7 @@ describe('FAVICON plugin', () => {
         }
       };
 
-      expect(faviconPlugin).toEqual(expected);
+      expect(faviconPlugin.options).toEqual(expected.options);
       expect(faviconPlugin).toBeInstanceOf(WebappWebpackPlugin);
     });
   });

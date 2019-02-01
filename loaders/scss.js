@@ -2,10 +2,10 @@ const {extractCssPlugin, postcss} = require('./utils');
 const {readFileSync} = require('fs');
 
 module.exports = (
-  {env, scssVariables, postcssOpts}) => (
+  {env, scssVariables, postcssOpts, exclude = /node_modules/}) => (
   {
     test: /\.scss$/,
-    exclude: /node_modules/,
+    exclude,
     loader: extractCssPlugin(env)([
       {
         loader: 'css-loader',
