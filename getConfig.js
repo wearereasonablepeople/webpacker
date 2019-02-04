@@ -75,6 +75,8 @@ const resolve = r => ({
 
 const devtool = mode => mode || process.env.NODE_ENV === 'development' ? 'eval' : false;
 
+const node = node => node || {};
+
 const checkFile = configFile => (key, fn) =>
   typeof configFile[key] === 'function' ? configFile[key](fn) : fn();
 
@@ -126,6 +128,7 @@ const getConfig = args => {
 
   return {
     ...baseConfig,
+    node: checkOption('node', node),
     devtool: checkOption('devtool', devtool),
     devServer: checkOption('devServer', devServer),
     entry: checkOption('entry', entry),
