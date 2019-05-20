@@ -1,6 +1,6 @@
 {
   "name": "webpacker",
-  "version": "4.2.3",
+  "version": "4.3.0",
   "description": "Webpack configuration manager",
   "main": "webpacker.js",
   "bin": {
@@ -56,7 +56,7 @@
     "lodash": "^4.17.11",
     "lodash-webpack-plugin": "^0.11.5",
     "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-will-change-transition": "^1.2.0",
