@@ -1,8 +1,9 @@
 const {extractCssPlugin, postcss} = require('./utils');
 
-module.exports = ({env, postcssOpts, exclude = /node_modules/}) => ({
+module.exports = ({env, postcssOpts, exclude, include}) => ({
   test: /\.css$/,
   exclude,
+  include,
   loader: extractCssPlugin(env)([
     {
       loader: 'css-loader',
