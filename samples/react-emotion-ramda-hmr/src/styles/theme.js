@@ -13,7 +13,7 @@ export class Theme {
       throw new Error(`Theme "${name}" is missing`);
     }
     this.theme = name;
-    Object.keys(this.themes[this.theme]).forEach((key) => {
+    Object.keys(this.themes[this.theme]).forEach(key => {
       this.setVar(key, key);
     });
   }

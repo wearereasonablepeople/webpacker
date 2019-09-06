@@ -8,6 +8,7 @@ module.exports = {
   coverageDirectory: path.join(__dirname, 'coverage'),
   coverageReporters: [...defaults.coverageReporters, 'html'],
   coveragePathIgnorePatterns: [...defaults.coveragePathIgnorePatterns, 'samples/'],
+  transform: {},
   collectCoverageFrom: [
     '**/*.{js}',
     '!**/node_modules/**',
