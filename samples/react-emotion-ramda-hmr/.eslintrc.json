@@ -1,10 +1,15 @@
 {
   "root": true,
   "extends": ["warp/es6", "warp/jsx"],
-  "plugins": ["emotion"],
+  "plugins": ["emotion", "babel"],
   "parser": "babel-eslint",
   "env": {
     "browser": true
+  },
+  "parserOptions": {
+    "babelOptions": {
+      "configFile": "./babel.config.js"
+    }
   },
   "globals": {
     "require": true,

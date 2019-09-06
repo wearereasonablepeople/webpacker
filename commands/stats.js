@@ -5,7 +5,7 @@ const handler = (argv = {}) => {
   const {getConfig} = require('../getConfig');
   const config = getConfig({...argv, analyzeBundle: true});
   const compiler = webpack(config);
-  compiler.run((err, stats) => console.log(stats.toString(config.stats)));
+  compiler.run((_, stats) => console.log(stats.toString(config.stats)));
 };
 
 module.exports = {
