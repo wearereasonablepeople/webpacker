@@ -7,7 +7,9 @@
     "webpacker": "./bin/index.js"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint:javascript": "eslint .",
+    "lint:markdown": "markdownlint README.md",
+    "lint": "npm run lint:javascript && npm run lint:markdown",
     "jest": "jest .",
     "c": "git-cz",
     "test": "npm run lint && npm run jest",
@@ -83,6 +85,7 @@
     "git-cz": "^1.7.1",
     "jest-cli": "^25.0.0",
     "jest-config": "^25.0.0",
+    "markdownlint-cli": "^0.18.0",
     "webpacker-cyclejs-sample": "file:./samples/cyclejs",
     "webpacker-react-and-favicon-sample": "file:./samples/react-and-favicon",
     "webpacker-react-and-graphql-sample": "file:./samples/react-and-graphql",

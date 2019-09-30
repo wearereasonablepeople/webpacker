@@ -1,34 +1,33 @@
-<div align="center">
-
-![image](https://hmp.me/bzzr)
+# webpacker
 
 [![Build Status](https://travis-ci.com/wearereasonablepeople/webpacker.svg?branch=master)](https://travis-ci.com/wearereasonablepeople/webpacker)
 [![Coverage Status](https://coveralls.io/repos/github/wearereasonablepeople/webpacker/badge.svg?branch=master)](https://coveralls.io/github/wearereasonablepeople/webpacker?branch=master)
 
-# webpacker
 [Webpack](https://github.com/webpack/webpack) configuration manager
 
-## But why?
+## Motivation
+
 Setting up webpack with a bunch of plugins and environments every time you start a new project can be time consuming and often confusing. Webpacker aims to provide you with an easy way to use standard webpack configurations without the hassle of setting them up yourself all the time.
 
-</div>
-
-# Installation
+## Installation
 
 ```bash
 npm i --save-dev webpacker
 ```
 
-# Usage
+## Usage
 
-## Commands
+### Commands
+
 For now there are 3 commands you can use.
+
 - `webpacker serve` => Webpacker will serve your project for development purposes.
 - `webpacker build` => Webpacker will build your project and output it to a folder.
-- `webpacker stats` => Webpacker will build your project and output it to a folder and it will open a browser window with information about your bundle sizes.
+- `webpacker stats` => Webpacker will build your project and output it to a folder and it will open
+a browser window with information about your bundle sizes.
 
+### Loaders
 
-# Loaders
 |Name|Additional parameters allowed|Description|
 |:--|:---|:---|
 |[css][css-loader]|`{env, postcssOpts}`|Loads a CSS file|
@@ -47,7 +46,8 @@ For now there are 3 commands you can use.
 [style-loader]: https://github.com/webpack-contrib/style-loader
 [url-loader]: https://github.com/webpack-contrib/url-loader
 
-# Plugins
+## Plugins
+
 |Name|Additional parameters allowed|Description|
 |:--|:---|:---|
 |[configure][environment-plugin]|`{env, constants}`|Shorthand for using the DefinePlugin on process.env keys.
@@ -74,12 +74,14 @@ For now there are 3 commands you can use.
 [react-scss-usage]: samples/react-and-scss/
 [root-usage]: samples/
 
-# Dotfile
+## Dotfile
+
 To provide configuration to webpacker, you'll need to add a `.webpacker.js` file in the root of your project. The location of the config file can be changed by passing `--config path/to/my/file.js` when running webpacker.
 
 The `.webpacker.js` file needs to export an object with at least the `preset` key.
 
-## Preset
+### Preset
+
 The preset defines which loaders and plugins will be used. If the loader or plugin you need is not available, please submit an issue or a PR.
 
 To provide a consistent way of providing arguments to the loaders and plugins, 2 functions are available to help:
@@ -90,22 +92,28 @@ These functions can be called with the name of the plugin/loader as the first ar
 For a list of available loaders, please check `./loaders/index.js`.
 For a list of available plugins, please check `./plugins/index.js`.
 
-## Other options
+### Other options
+
 The following options can be adjusted by returning them as a key in `.webpacker.js`. The options should be functions and their only argument is the function that webpacker itself uses internally. You can choose to call this given function and extend on its return value, or choose to not use the function and return a value of your choosing (refer to the documentation of each option to see what has to be returned).
 
-### devServer
+#### devServer
+
 `devServer` is used to define options for [webpack-dev-server](https://github.com/webpack/webpack-dev-server), which is used when running `webpacker serve`.
 
-### entry
+#### entry
+
 `entry` is for [webpack](https://webpack.js.org/concepts/#entry)'s `entry` option. By default its value is `./src/index.js`.
 
-### output
+#### output
+
 `output` is for [webpack](https://webpack.js.org/concepts/#output)'s `output` option.
 
-### devtool
+#### devtool
+
 `devtool` is for [webpack](https://webpack.js.org/configuration/devtool/)'s `devtool` option.
 
-### Example file
+#### Example file
+
 ```js
 const path = require('path');
 const {setLoader, setPlugin} = require('webpacker/utils');
@@ -129,16 +137,18 @@ module.exports = {
 };
 ```
 
-# Samples
+## Samples
 
-* [Samples][root-usage]
-  * [Cyclejs][cyclejs-usage]
-  * [React and favicon][react-favicon-usage]
-  * [React and graphql][react-graphql-usage]
-  * [React and scss][react-scss-usage]
+- [Samples][root-usage]
+  - [Cyclejs][cyclejs-usage]
+  - [React and favicon][react-favicon-usage]
+  - [React and graphql][react-graphql-usage]
+  - [React and scss][react-scss-usage]
 
-# Help us
+## Help us
+
 Support us by giving feedback, opening a pull request or just by starring the project!
 
-# License
+## License
+
 ISC
