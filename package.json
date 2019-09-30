@@ -39,6 +39,7 @@
     "babel-plugin-ramda": "^2.0.0",
     "chalk": "^2.4.1",
     "chokidar": "^2.1.8",
+    "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^4.5.3",
     "css-loader": "^2.1.0",

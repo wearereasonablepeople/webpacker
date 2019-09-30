@@ -50,9 +50,10 @@ For now there are 3 commands you can use.
 # Plugins
 |Name|Additional parameters allowed|Description|
 |:--|:---|:---|
-|[configure][environment-plugin]|`{env, constants}`|Shorthand for using the DefinePlugin on process.env keys.
+|[configure][environment-plugin]|`{env, constants}`|Shorthand for using the DefinePlugin on process.env keys|
 |[copy][copy-webpack-plugin]|`{copy}`|Copies individual files or entire directories to the build directory|
-|[css][mini-css-extract-plugin]|`{devServer}`|It creates a CSS file per JS file which contains CSS. It supports On-Demand-Loading of CSS and SourceMaps.|
+|[clean][clean-webpack-plugin]|`{dry, cleanStaleWebpackAssets, protectWebpackAssets}`|A webpack plugin to remove/clean your build folder(s)|
+|[css][mini-css-extract-plugin]|`{devServer}`|It creates a CSS file per JS file which contains CSS. It supports On-Demand-Loading of CSS and SourceMaps|
 |[favicon][favicons-webpack-plugin]|`{cwd, logo}`|Allows to use the favicons generator with webpack|
 |[html][html-webpack-plugin]|`{cwd, index}`|Plugin that simplifies creation of HTML files to serve your bundles|
 |[stats][webpack-bundle-analyzer]||Visualize size of webpack output files with an interactive zoomable treemap|
@@ -60,6 +61,7 @@ For now there are 3 commands you can use.
 |[lodash][lodash-webpack-plugin]|`opts`|Treeshaking plugin for lodash-es|
 
 [copy-webpack-plugin]: https://github.com/webpack-contrib/copy-webpack-plugin
+[clean-webpack-plugin]: https://github.com/johnagan/clean-webpack-plugin
 [environment-plugin]: https://webpack.js.org/plugins/environment-plugin/
 [favicons-webpack-plugin]: https://github.com/jantimon/favicons-webpack-plugin
 [html-webpack-plugin]: https://github.com/jantimon/html-webpack-plugin
