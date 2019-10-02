@@ -7,6 +7,7 @@ const html = require('./html');
 const stats = require('./stats');
 const compress = require('./compress');
 const lodash = require('./lodash');
+const forkTsChecker = require('./fork-ts-checker');
 
 module.exports = {
   configure,
@@ -18,4 +19,5 @@ module.exports = {
   stats,
   compress,
   lodash,
+  forkTsChecker,
 };

@@ -24,3 +24,8 @@ runner({
   dir: 'react-emotion-ramda-hmr',
   name: 'React, Ramda, Emotion with HMR',
 });
+
+runner({
+  dir: 'react-typescript',
+  name: 'React and Typescript',
+});

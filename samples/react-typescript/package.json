@@ -1,0 +1,21 @@
+{
+  "name": "webpacker-react-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ../../webpacker serve",
+    "build": "node ../../webpacker build",
+    "stats": "node ../../webpacker stats"
+  },
+  "author": "Renan Borges <renan@wearereasonablepeople.com> (https://github.com/renanborgez)",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.3",
+    "@types/react-dom": "^16.9.1"
+  }
+}

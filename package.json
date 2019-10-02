@@ -48,6 +48,7 @@
     "eslint-plugin-emotion": "^10.0.14",
     "eslint-plugin-react": "^7.14.3",
     "file-loader": "^3.0.1",
+    "fork-ts-checker-webpack-plugin": "^1.5.0",
     "graphql": "^14.5.4",
     "graphql-tag": "^2.10.0",
     "html-loader": "^0.5.5",
@@ -64,6 +65,8 @@
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.4.1",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.3",
     "url-loader": "^1.1.2",
     "webapp-webpack-plugin": "^2.7.1",
     "webpack": "^4.39.3",
@@ -92,6 +95,7 @@
     "webpacker-react-and-graphql-sample": "file:./samples/react-and-graphql",
     "webpacker-react-and-scss-sample": "file:./samples/react-and-scss",
     "webpacker-react-emotion-ramda-hmr-sample": "file:./samples/react-emotion-ramda-hmr",
+    "webpacker-typescript-sample": "file:./samples/react-typescript",
     "xyz": "^3.0.0"
   }
 }
