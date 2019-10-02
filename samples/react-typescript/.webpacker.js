@@ -2,7 +2,7 @@ const path = require('path');
 const {setLoader, setPlugin} = require('../../utils');
 
 /**
- * (Optinonal)
+ * (Optional)
  *
  * Use the `forkTsChecker` plugin to improve performance.
  *
