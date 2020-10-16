@@ -5,8 +5,10 @@ import Container from '../Container';
 export default class Cms extends React.Component {
 
   render() {
-    return <Switch>
-      <Route component={Container} />
-    </Switch>;
+    return (
+      <Switch>
+        <Route component={Container} />
+      </Switch>
+    );
   }
 }
