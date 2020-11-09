@@ -3,8 +3,8 @@ const {css} = require('../../plugins');
 describe('CSS plugin', () => {
   const defaults = {
     options: {
-      chunkFilename: '[id].[hash].css',
-      filename: '[name].[hash].css'
+      chunkFilename: '[id].[contenthash].css',
+      filename: '[name].[contenthash].css'
     },
   };
 
